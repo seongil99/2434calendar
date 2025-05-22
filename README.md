@@ -62,7 +62,7 @@ A calendar application built with modern web technologies.
 
 3. Build and start the services
    ```bash
-   docker compose up --build
+   docker compose up -d --build
    ```
 
 4. Access the application
