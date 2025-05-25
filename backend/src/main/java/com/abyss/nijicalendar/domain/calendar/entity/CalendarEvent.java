@@ -1,6 +1,5 @@
 package com.abyss.nijicalendar.domain.calendar.entity;
 
-import com.abyss.nijicalendar.domain.notification.entity.Notification;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +8,6 @@ import lombok.NoArgsConstructor;
 import org.locationtech.jts.geom.Point;
 
 import java.time.ZonedDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "calendar_events")
