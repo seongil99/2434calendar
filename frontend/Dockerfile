@@ -1,5 +1,5 @@
 # Build stage
-FROM node:20-alpine AS build
+FROM node:22-slim AS build
 
 # Set working directory
 WORKDIR /app
@@ -7,8 +7,9 @@ WORKDIR /app
 # Copy package.json and package-lock.json
 COPY package.json package-lock.json* ./
 
-# Install dependencies
-RUN npm ci
+# Install dependencies - explicitly installing the optional dependency to avoid the npm bug
+RUN npm ci && \
+    npm install --no-save @rollup/rollup-linux-arm64-gnu || true
 
 # Copy the rest of the application code
 COPY . .
@@ -17,7 +18,7 @@ COPY . .
 RUN npm run build-only
 
 # Production stage
-FROM nginx:stable-alpine AS production
+FROM nginx:1.27 AS production
 
 # Copy built assets from the build stage
 COPY --from=build /app/dist /usr/share/nginx/html
