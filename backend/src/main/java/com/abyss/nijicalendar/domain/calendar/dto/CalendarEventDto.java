@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import org.locationtech.jts.geom.Point;
 
 import java.time.ZonedDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @NoArgsConstructor
@@ -15,7 +17,7 @@ import java.time.ZonedDateTime;
 @Builder
 public class CalendarEventDto {
     private Long id;
-    private Long notificationId;
+    private List<Long> notificationIds; // 여러 알림을 가질 수 있도록 변경
     private ZonedDateTime startedAt;
     private ZonedDateTime endAt;
     private Point location;
@@ -26,7 +28,9 @@ public class CalendarEventDto {
     public static CalendarEventDto fromEntity(CalendarEvent event) {
         return CalendarEventDto.builder()
                 .id(event.getId())
-                .notificationId(event.getNotificationId())
+                .notificationIds(event.getNotifications().stream()
+                        .map(notification -> notification.getId())
+                        .collect(Collectors.toList()))
                 .startedAt(event.getStartedAt())
                 .endAt(event.getEndAt())
                 .location(event.getLocation())
@@ -39,7 +43,6 @@ public class CalendarEventDto {
     public CalendarEvent toEntity() {
         return CalendarEvent.builder()
                 .id(id)
-                .notificationId(notificationId)
                 .startedAt(startedAt)
                 .endAt(endAt)
                 .location(location)
