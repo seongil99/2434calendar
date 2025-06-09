@@ -41,9 +41,6 @@ public class Notification {
     )
     private Set<CalendarEvent> events = new HashSet<>();
 
-    @Column(name = "external_id")
-    private String externalId;
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private NotificationSource source;
