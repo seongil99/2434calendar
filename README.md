@@ -7,8 +7,8 @@ A modern calendar application built with cutting-edge web technologies.
 ## Technology Stack
 
 ### Frontend
-- **Framework**: Next.js 15.3.3 (React 19)
-- **Build Tool**: Next.js (Turbopack)
+- **Framework**: React 19 with TanStack Router
+- **Build Tool**: Vite
 - **Package Manager**: npm
 - **Styling**: Tailwind CSS 4
 - **Languages**: TypeScript, JavaScript
@@ -33,12 +33,11 @@ A modern calendar application built with cutting-edge web technologies.
 
 ```
 2434calendar/
-├── frontend/                 # Next.js frontend application
+├── frontend/                 # React frontend application
 │   ├── src/                  # Source code
 │   ├── public/               # Static assets
 │   ├── package.json          # Dependencies and scripts
 │   ├── tsconfig.json         # TypeScript configuration
-│   ├── next.config.ts        # Next.js configuration
 │   ├── tailwind.config.js    # Tailwind CSS configuration
 │   └── eslint.config.mjs     # ESLint configuration
 ├── backend/                  # Spring Boot backend application
