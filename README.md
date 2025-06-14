@@ -9,7 +9,7 @@ A modern calendar application built with cutting-edge web technologies.
 ### Frontend
 - **Framework**: React 19 with TanStack Router
 - **Build Tool**: Vite
-- **Package Manager**: npm
+- **Package Manager**: Bun
 - **Styling**: Tailwind CSS 4
 - **Languages**: TypeScript, JavaScript
 - **Linting**: ESLint
@@ -35,10 +35,9 @@ A modern calendar application built with cutting-edge web technologies.
 2434calendar/
 ├── frontend/                 # React frontend application
 │   ├── src/                  # Source code
-│   ├── public/               # Static assets
 │   ├── package.json          # Dependencies and scripts
 │   ├── tsconfig.json         # TypeScript configuration
-│   ├── tailwind.config.js    # Tailwind CSS configuration
+│   ├── tailwind.config.ts    # Tailwind CSS configuration
 │   └── eslint.config.mjs     # ESLint configuration
 ├── backend/                  # Spring Boot backend application
 │   ├── src/                  # Source code
@@ -54,7 +53,7 @@ A modern calendar application built with cutting-edge web technologies.
 ### Prerequisites
 - Docker and Docker Compose
 - Java 21 (for local development)
-- Node.js and npm (for local development)
+- Bun (for local development)
 
 ### Running with Docker Compose
 
@@ -81,8 +80,8 @@ A modern calendar application built with cutting-edge web technologies.
 #### Frontend
 ```bash
 cd frontend
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 #### Backend

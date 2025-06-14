@@ -2,22 +2,22 @@ This is a React project powered by [TanStack Router](https://tanstack.com/router
 
 ## Getting Started
 
-To start the development server:
-
+Install dependencies with Bun:
 ```bash
-npm run dev
+bun install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-Build for production with:
-
+Run the development server:
 ```bash
-npm run build
+bun run dev
 ```
 
-Preview the production build locally:
-
+Build for production:
 ```bash
-npm run preview
+bun run build
+```
+
+Preview the production build:
+```bash
+bun run preview
 ```

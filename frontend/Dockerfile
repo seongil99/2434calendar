@@ -1,18 +1,13 @@
-FROM node:22-alpine AS base
-RUN apk add --no-cache libc6-compat
-
-FROM base AS builder
+FROM oven/bun:1 as builder
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
+COPY package.json bun.lockb* ./
+RUN bun install
 COPY . .
-RUN npm run build
+RUN bun run build
 
-FROM base AS runner
+FROM oven/bun:1 as runner
 WORKDIR /app
-ENV NODE_ENV production
-COPY package*.json ./
-RUN npm ci --only=production && npm cache clean --force
-COPY --from=builder /app/dist ./dist
+ENV NODE_ENV=production
+COPY --from=builder /app .
 EXPOSE 3000
-CMD ["npm", "run", "preview"]
+CMD ["bun", "run", "preview"]
