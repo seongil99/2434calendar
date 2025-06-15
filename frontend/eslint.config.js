@@ -12,8 +12,47 @@ export default [
   {
     ignores: ['dist', 'build', 'node_modules', '.react-router']
   },
+  // Node.js 환경 설정 (config 파일들)
+  {
+    files: ['**/*.config.{js,ts}', 'vite.config.{js,ts}', 'playwright.config.{js,ts}'],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      parser: tsParser,
+      globals: {
+        ...globals.node,
+        ...globals.es2020
+      }
+    },
+    plugins: {
+      '@typescript-eslint': tseslint,
+      import: importPlugin
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+      ...tseslint.configs.recommended.rules,
+      
+      // TypeScript specific rules
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-non-null-assertion': 'warn',
+      
+      // General rules
+      'no-console': 'warn',
+      'no-debugger': 'error',
+      'no-unused-vars': 'off',
+      'prefer-const': 'error',
+      'no-var': 'error',
+      'eqeqeq': 'error',
+      'curly': 'error'
+    }
+  },
+  // 브라우저 환경 설정 (React 앱)
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
+    ignores: ['**/*.config.{js,ts}', 'vite.config.{js,ts}', 'playwright.config.{js,ts}'],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'module',
