@@ -9,7 +9,9 @@
     "typecheck": "react-router typegen && tsc",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "lint:quiet": "eslint . --quiet"
+    "lint:quiet": "eslint . --quiet",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
   },
   "dependencies": {
     "@react-router/node": "^7.5.3",
