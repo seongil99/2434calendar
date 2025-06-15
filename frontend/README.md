@@ -86,6 +86,12 @@ bun run start
 # Type checking
 bun run typecheck
 
+# Lint code with ESLint
+bun run lint
+
+# Fix ESLint errors automatically
+bun run lint:fix
+
 # Preview production build locally
 bun run preview
 ```
@@ -140,6 +146,31 @@ bun run build
 # Start the production server
 bun run start
 ```
+
+## Code Quality
+
+This project includes comprehensive code quality tools:
+
+### ESLint Configuration
+- **ESLint 9.x**: Latest version with flat config format
+- **TypeScript Support**: Full integration with TypeScript
+- **React Rules**: Optimized for React 19 and JSX Transform
+- **Import Ordering**: Automatic import organization
+- **Accessibility**: JSX-a11y rules for better accessibility
+- **React Hooks**: Proper hooks usage validation
+
+### Code Standards
+- Import order enforcement with grouping
+- TypeScript strict rules with reasonable defaults
+- React best practices and hooks rules
+- Accessibility compliance checks
+- Automatic code fixing with `bun run lint:fix`
+
+### VSCode Integration
+- Automatic ESLint error fixing on save
+- Tailwind CSS IntelliSense support
+- File nesting for better organization
+- TypeScript auto-imports configuration
 
 ## Key Features
 

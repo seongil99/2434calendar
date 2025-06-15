@@ -1,7 +1,8 @@
-import type { Route } from "./+types/home";
 import { Link } from "react-router";
 
-export function meta({}: Route.MetaArgs) {
+import type { Route } from "./+types/home";
+
+export function meta(_: Route.MetaArgs) {
   return [
     { title: "홈 - React Router 앱" },
     { name: "description", content: "React Router 기반 애플리케이션" },
