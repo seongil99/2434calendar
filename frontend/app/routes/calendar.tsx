@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Calendar, momentLocalizer, type View } from 'react-big-calendar';
 import moment from 'moment';
+import { useState } from 'react';
+import { Calendar, momentLocalizer, type View } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 const localizer = momentLocalizer(moment);
