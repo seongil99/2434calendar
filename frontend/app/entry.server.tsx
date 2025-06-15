@@ -1,10 +1,7 @@
 import type { AppLoadContext, EntryContext } from "react-router";
 import { ServerRouter } from "react-router";
 import { isbot } from "isbot";
-import { renderToPipeableStream } from "react-dom/server";
 import * as ReactDOMServer from "react-dom/server";
-import { createReadableStreamFromReadable } from "@react-router/node";
-import { PassThrough } from "node:stream";
 
 export const streamTimeout = 5_000;
 
@@ -49,7 +46,17 @@ export default function handleRequest(
           })
         );
       } else {
-        // Node.js runtime - use renderToPipeableStream
+        // Node.js runtime - use renderToPipeableStream with dynamic imports
+        const [
+          { renderToPipeableStream },
+          { createReadableStreamFromReadable },
+          { PassThrough }
+        ] = await Promise.all([
+          import("react-dom/server"),
+          import("@react-router/node"),
+          import("node:stream")
+        ]);
+
         const { pipe, abort } = renderToPipeableStream(
           <ServerRouter context={routerContext} url={request.url} />,
           {
