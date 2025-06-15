@@ -1,14 +1,4 @@
-Dockerfile
-.dockerignore
+.react-router
+build
 node_modules
-npm-debug.log
 README.md
-.env
-.env.local
-.env.production.local
-.env.staging.local
-.git
-.gitignore
-.next
-.vercel
-*.md 
